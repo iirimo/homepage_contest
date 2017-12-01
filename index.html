@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+    <TITLE> HTML のサンプル </TITLE>
+  </HEAD>
+  <BODY>
+    
+    <FONT SIZE = +5><FONT COLOR = sky blue><B><BLINK><CENTER>問題1</CENTER></BLINK></B></FONT></FONT><BR>
+   <FONT COLOR=green><FONT SIZE=4><SUB><CENTER>問題文</CENTER></SUB></FONT></FONT><BR>
+    <FONT SIZE=3>問
+      1<BR>行列の積に関するプログラムで使われる関数をC言語で作成せよ。<BR>このプログラムは要としてint型の値を持つ3×3行列に関する操作を行っている。<BR><BR>関数matAvrDiagElementsは,第1引数の行列からその行列の対角要素(3個の要素)の平均値を求めて返り値として返す。<BR>関数matProductは,第1引数の行列(A)と第2引数の行列(B)の積(AB)の結果を第3引数の行列に格納する。関数mat4thPowerは,第1引数の行列を4乗した結果を第2引数の行列に格納する。<BR><BR>なお,必要であれば,これら3つの関数はお互いに内部で使用しても構わない。ただし,作成する関数はメイン関数内に示している行列の各要素の値が変わっても,正しく動作するように作成すること。</FONT><BR><BR>
+    <FONT COLOR=BLUE><CENTER>解答例</CENTER></FONT><BR>
+	<BR>
+	<font size=3>#include &lt;stdio.h&gt;<BR><BR>
+<font color=sky blue>double matAvrDiagElements(int a[3][3]);</font><BR>
+<font color=blue>void matProduct(int a[3][3], int b[3][3], int c[3][3]);</font><BR>
+<font color=green>void mat4thPower(int a[3][3], int d[3][3]);</font><BR><BR>
+int main(int arc, char *argv[]){<BR>
+&nbsp;   int a[3][3] = {{1,2,3},{4,5,6},{7,8,9}};<BR>
+&nbsp;   int b[3][3] = {{9,8,7},{6,5,4},{3,2,1}};<BR>
+&nbsp;   double av;<BR>
+&nbsp;   int c[3][3], d[3][3];<BR>
+&nbsp;   int i,j;<BR><BR>
+<font color=sky blue> &nbsp;  av = matAvrDiagElements(a);</font><BR>
+ &nbsp;  printf(&quot;average of diagonal elements = %f \n&quot;,av);<BR>
+ <font color=blue>&nbsp;  matProduct(a,b,c);</font><BR><BR>
+ &nbsp;  for(i=0;i<3;i++){<BR>
+   &nbsp;  for(j=0;j<3;j++){<BR>
+     &nbsp;  printf("%d\t",c[i][j]);<BR>
+  &nbsp;   }<BR>
+  &nbsp;   printf("\n");<BR>
+ &nbsp;  }<BR><BR>
+  <font color=green>mat4thPower(a,d);</font><BR>
+&nbsp;   for(i=0;i<3;i++){<BR>
+  &nbsp;  &nbsp;  for(j=0;j<3;j++){<BR>
+  &nbsp;   &nbsp;   printf("%d\t",d[i][j]);<BR>
+  &nbsp;  &nbsp;  }<bR>
+   &nbsp;  printf("\n");<BR>
+&nbsp;   }<BR><BR>
+  return 0;<BR>
+}<BR><BR>
+<font color=blue>void matProduct(int a[3][3],int b[3][3],int c[3][3]){<BR>
+		int i,j,k;<BR><BR>
+		for(i=0;i<3;i++){<BR>
+&nbsp; for(j=0;j<3;j++){<BR>
+   &nbsp;  &nbsp;   c[i][j]=0;<BR>
+   &nbsp;   &nbsp;  for(k=0;k<3;k++){<BR>
+&nbsp; &nbsp; &nbsp; 	c[i][j]=c[i][j]+a[i][k]*b[k][j];<BR>
+    &nbsp; &nbsp;   }<BR>
+  &nbsp;   }<BR>
+		  }<bR>
+		     
+}</font><BR><BR>
+<font color=sky blue>double matAvrDiagElements(int a[3][3]){<BR><BR>
+ &nbsp; double ave=0;<BR><BR>
+ &nbsp;  ave=(a[0][0]+a[1][1]+a[2][2])/3.0;<BR>
+ &nbsp;  return ave;<BR>
+}</font><BR><BR>
+<font color=green>void mat4thPower(int a[3][3],int d[3][3]){<BR><BR>
+ &nbsp;  int a2[3][3];<BR><BR>
+  &nbsp;  <font color=blue> matProduct(a,a,a2);</font><BR>
+   &nbsp;  <font color=blue>matProduct(a2,a2,d);</font><BR><BR>
+}</font>
+<BR>
+<BR>
+<FONT SIZE = +5><FONT COLOR = sky blue><B><BLINK><CENTER>問題2</CENTER></BLINK></B></FONT></FONT><BR>
+<FONT COLOR=green><FONT SIZE=4><SUB><CENTER>問題文</CENTER></SUB></FONT></FONT><BR>
+    <FONT SIZE=3>問
+      2<BR><pre>
+関数chkCdnは、第1引数で与えられた文字列中に第2引数で指定された３文字からなる文字列が何回登場するかを数える。
+関数srchSは、第1引数に与えられたリスト構造のノードにおいて、連続する3
+つのノードが持つ文字の並びが、第2引数で与えられた３文字からなる文字列の並びと一致する最初の位置を返り値で返す。見付からなければNULLを返す。
+以下、ここではゼロも3の倍数とする。関数srchEは、第1引数に与えられたリスト構造において、リストの先頭のノードをゼロ番目として数えると3の倍数の番目になるノードを起点とする連続する3つのノードが持つ文字の並びをリストの先頭から順に調べる。
+文字列の並びが、第2引数で与えられた3文字からなる3種類の文字列のいずれかに一致する場合は起点のノードの位置を返り値で返す
+見付からなければNULLを返す。
+ただし、
+作成する関数はメイン関数内に示された入力としての文字列mrna
+の内容が変わっても正しく動作するように作成すること
+このプログラムを実行した際の画面出力結果は次のようになる。</pre><BR><BR>
+      <FONT COLOR=BLUE><CENTER>解答例</CENTER></FONT><BR>
+      <BR>
+      <pre>#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct struct_dummy {
+  char nc;
+  struct struct_dummy *next;
+} Seq;
+
+<font color=sky blue>int chkCdn(char sq[], char *cdn);</font>
+
+<font color=blue>Seq *srchS(Seq *sq,char *startcdn);</font>
+
+<font color=green>Seq *srchE(Seq *sq,char *stopcdn[3]);</font>
+
+<font color=orange>int freeLISTnodes(Seq *sq);</font>
+
+int  main(int argc, char *argv[]){
+
+  char mrna[]="GCAUGCAUGCGCAUGUGUAAGCAU";
+
+  char startcdn[]="AUG";
+
+  char *stopcdn[3] ={"UAA","UAG","UGA"};
+
+  Seq *sq1;
+  Seq *sq2;
+  Seq *sq2stop;
+  Seq *sq2end;
+  Seq *pt;
+
+  int numfound;
+  int nth=0;
+
+  <font color=sky blue>numfound = chkCdn(mrna,startcdn);</font>
+
+  printf("%d\n",numfound);
+  
+sq1 = (Seq *)malloc(sizeof(Seq));
+
+  pt= sq1;
+
+  for(nth=0;nth<strlen(mrna)-1;nth=nth+1){
+    pt->nc=mrna[nth];
+    pt->next= (Seq *)malloc(sizeof(Seq));
+    pt=pt->next;
+  }
+
+  pt->nc=mrna[nth];
+
+  pt->next=NULL;
+
+  for(pt=sq1;pt!=NULL;pt=pt->next){
+    printf("%c",pt->nc);
+  }
+
+  printf("\n");
+  
+ <font color=blue> sq2=srchS(sq1,startcdn);</font>
+  
+   if(sq2==NULL){
+    printf("Start: Not found\n");
+  } else{
+    <font color=green>sq2stop=srchE(sq2,stopcdn);</font>
+    if(sq2stop==NULL){
+      printf("Stop: Not found\n");
+    } else {
+
+
+sq2end=sq2stop->next->next->next;
+
+for(pt=sq2;pt!=sq2end;pt=pt->next){
+
+printf("%c",pt->nc);
+}
+printf("\n");
+}
+}
+   <font color=orange>freeLISTnodes(sq1);</font>
+ return 0;
+}
+
+<font color=sky blue>int chkCdn(char sq[],char *cdn){
+
+  char* str;
+  int count=0,i,n;
+  
+  char A,U,G;
+  A=(*cdn);
+  U=*(cdn+1);
+  G=*(cdn+2);
+  
+  n=strlen(sq);
+
+    for(i=0;i<n;i++){
+      if(sq[i]=='A'){
+	if(sq[i+1]=='U'){
+	  if(sq[i+2]=='G'){
+	    count++;
+	  }
+	}
+      }
+    }
+    return count;
+		}</font>
+		
+<font color=blue>Seq *srchS(Seq *sq,char *startcdn){
+
+  Seq* sump;
+  Seq* pt;
+
+  for(pt=sq;pt!=NULL;pt=pt->next){
+    if(pt->next==NULL){
+      return NULL;
+    }
+    if(pt->nc==*startcdn){
+      if(pt->next->nc==*(startcdn+1)){
+	if(pt->next->next->nc==*(startcdn+2)){
+	      sump=pt;
+	      break;
+	    }
+      }
+    }
+  } 
+  return sump;
+  }</font>
+
+<font color=green>Seq *srchE(Seq *sq,char *stopcdn[3]){
+
+  Seq* sump;
+  Seq* pt;
+
+   for(pt=sq;pt!=NULL;pt=pt->next->next->next){
+    if(pt->next->next->next==NULL){
+      return NULL;
+    }
+    if(pt->nc==*stopcdn[0]){
+      if(pt->next->nc==*(stopcdn[0]+1)){
+	if(pt->next->next->nc==*(stopcdn[0]+2)){
+	  sump=pt;
+	  break;
+	}
+      }
+    }
+    if(pt->nc==*stopcdn[1]){
+      if(pt->next->nc==*(stopcdn[1]+1)){
+	if(pt->next->next->nc==*(stopcdn[1]+2)){
+	  sump=pt;
+	  break;
+	}
+      }
+    }
+    if(pt->nc==*stopcdn[2]){
+      if(pt->next->nc==*(stopcdn[2]+1)){
+	if(pt->next->next->nc==*(stopcdn[2]+2)){
+	  sump=pt;
+	  break;
+	}
+      }
+    }
+  }
+  return sump;
+}</font>
+
+<font color=orange>int freeLISTnodes(Seq *sq){
+
+  Seq* pt;
+
+  for(pt=sq;sq!=NULL;sq=sq->next){
+    if(pt->next==NULL){
+      free(pt);
+      pt=sq;
+    }
+  }
+
+  return 0;
+}</font></pre>
+      
+    <UL>
+      <LI> aaa
+      <LI TYPE="circle"> aaaa
+    </UL>
+    <DL>
+      <DT>ぶどう
+	<DD>ワインの原料になる
+	  <DT>りんご
+	    <DD>うさぎになる
+	      <DT><a name="momiji">紅葉</a>
+		<DD>葉っぱの形が綺麗
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		    
+		     
+		  
+		  <DT><a href= #momiji>紅葉</a>
+		  </DL>
+	
+    <TABLE BORDER COLS=4> <CAPTION>ミニ九九の表</CAPTION>
+      <TR> <TH><BR></TH><TH>1</TH><TH>2</TH><TH>3</TH> </TR>
+      <TR> <TH>1   </TH><TD>1</TD><TD>2</TD><TD>3</TD> </TR>
+      <TR> <TH>2   </TH><TD>2</TD><TD>4</TD><TD>6</TD> </TR>
+      <TR> <TH>3   </TH><TD>3</TD><TD>6</TD><TD>9</TD> </TR>
+    </TABLE>
+  </BODY>
+</HTML>

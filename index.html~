@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+    <TITLE> HTML のサンプル </TITLE>
+  </HEAD>
+  <BODY>
+    
+    <FONT SIZE = +5><FONT COLOR = red><B><BLINK><CENTER>問題　1</CENTER></BLINK></B></FONT></FONT><BR>
+   <FONT COLOR=green><FONT SIZE=4><SUB><CENTER>問題文</CENTER></SUB></FONT></FONT><BR>
+    <FONT SIZE=3>問
+      1<BR>行列の積に関するプログラムで使われる関数をC言語で作成せよ。<BR>このプログラムは要としてint型の値を持つ3×3行列に関する操作を行っている。<BR><BR>関数matAvrDiagElementsは,第1引数の行列からその行列の対角要素(3個の要素)の平均値を求めて返り値として返す。<BR>関数matProductは,第1引数の行列(A)と第2引数の行列(B)の積(AB)の結果を第3引数の行列に格納する。関数mat4thPowerは,第1引数の行列を4乗した結果を第2引数の行列に格納する。<BR><BR>なお,必要であれば,これら3つの関数はお互いに内部で使用しても構わない。ただし,作成する関数はメイン関数内に示している行列の各要素の値が変わっても,正しく動作するように作成すること。</FONT><BR><BR>
+    <FONT COLOR=BLUE><CENTER>解答例</CENTER></FONT><BR>
+	<BR>
+	
+    
+    <UL>
+      <LI> aaa
+      <LI TYPE="circle"> aaaa
+    </UL>
+    <DL>
+      <DT>ぶどう
+	<DD>ワインの原料になる
+	  <DT>りんご
+	    <DD>うさぎになる
+	      <DT><a name="momiji">紅葉</a>
+		<DD>葉っぱの形が綺麗
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		  <BR>
+		    
+		     
+		  
+		  <DT><a href= #momiji>紅葉</a>
+		  </DL>
+	
+    <TABLE BORDER COLS=4> <CAPTION>ミニ九九の表</CAPTION>
+      <TR> <TH><BR></TH><TH>1</TH><TH>2</TH><TH>3</TH> </TR>
+      <TR> <TH>1   </TH><TD>1</TD><TD>2</TD><TD>3</TD> </TR>
+      <TR> <TH>2   </TH><TD>2</TD><TD>4</TD><TD>6</TD> </TR>
+      <TR> <TH>3   </TH><TD>3</TD><TD>6</TD><TD>9</TD> </TR>
+    </TABLE>
+  </BODY>
+</HTML>
