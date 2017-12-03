@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+    <TITLE> 関数２</TITLE>
+  </HEAD>
+  <BODY>
+    <dl>
+      <b><center><dt><font size=6><a name="top">問2の関数</a></font></b>
+        <DD><a href=funk2.html#one>int chkCdn(char sq[], char *cdn);</a>
+          <dd><a href=funk2.html#two>Seq *srchS(Seq *sq,char *startcdn);</a>
+            <dd><a href=funk2.html#three>Seq *srchE(Seq *sq,char *stopcdn[3]);</a>
+              <dd><a href=funk2.html#four>int freeLISTnodes(Seq *sq);</a>
+            </center>
+              <bl>
+                <bl>
+                  <bl>
+                    <font size=4><a name="one">int chkCdn(char sq[], char *cdn);</a></font>
+                    <ul>
+                      <li>引数で送られた３文字が文字列中に何回存在するかその回数を返す関数である。
+                        <li>変数ｎは文字列の長さである。
+                          <li>ｎとfor文を利用して文字列を最後まで1文字づつ確認してゆく。
+                            <li>if文を３回使うことで一文字ずつ確認してゆき、指定された3文字が連続で続けばcountが一つ増える
+                              <li>countを返す。
+                              </ul>
+                              <bl>
+                                <bl>
+                                  <font size=4><a name="two">Seq *srchS(Seq *sq,char *startcdn);</a></font>
+                                  <ul><br>
+                                    <li>main関数内でこの関数が使用される前に文字列が構造体に代入され、リスト構造がつくられている。
+<pre>
+
+  for(nth=0;nth<strlen(mrna)-1;nth=nth+1){
+    pt->nc=mrna[nth];
+    pt->next= (Seq *)malloc(sizeof(Seq));
+    pt=pt->next;
+  }</pre>
+  <li>リスト構造を作る際にデータの入っていない構造体である"sq1"がリストの先頭として使用されている。
+    <li>このような先頭の"dummy"はリストのアドレスを固定する"艀"としての役割を持つ。
+      <li>また、データの先頭に新たなデータを挿入する際にも役立つ。
+        <br><br>
+          <li>引数で送られた３文字がリスト構造内に存在するときその１文字目となる構造体を返す関数である。
+            <li><a href=./funk2.html#one>先ほどの関数</a>と同じくfor文とif文を用いて構造体内のデータを1文字ずつ確認してゆく。
+              <li>文字列が見つからないままpt->nextがNULLになった場合、NULLを返す。
+              <li>リスト構造によりpt->nextは次の構造体を表すため、<br>
+                ptを一つ目の構造体とすると、pt->nextは二つ目、pt->next->nextは三つ目の構造体を表す。
+                <li>引数内のstartcdnは文字列の先頭を表すポインタのため、<br>
+                  *startcdnは一文字目、*(startcdn+1)は二文字目、*(startcdn+2)は三文字目を表す。
+                </ul>
+                <br>
+                <br>
+                <font size=4><a name="three">Seq *srchE(Seq *sq,char *stopcdn[3]);</a></font>
+                <ul>
+                  <li><a href=./funk2.html#two>先ほどの関数</a>とほぼ同じ関数であるが、今回は３の倍数ごとでfor文が移動し、文字列は３種類存在する。
+                    <li>pt=pt->next->next->nextによりptは３の倍数ごとに移動する。
+                      <li>for文内において<pre>
+                        if(pt->next->next->next==NULL){
+                        return NULL;
+                       }
+                     </pre>によって文字列が見つからない場合NULLを返す。
+                     <li>stopcdn[0]は一つ目の文字列の先頭ポインタ、stopcdn[1]は二つ目の文字列の先頭ポインタ、stopcdn[2]は三つ目の文字列の先頭ポインタである。
+                      <li>よって*(stopcdn[0]+2)は一つ目の文字列の三文字目を表し、*(stopcdn[2]+1)は三つ目の文字列の二文字目を表す。
+                      </ul>
+<br>
+<br>
+<font size=4><a name="four">int freeLISTnodes(Seq *sq);</a></font>
+<ul>
+  <li>リスト構造の動的メモリをフリーする関数である。
+    <li>for文によりリストの最後まで移動し、フリーを行った後に<br>
+      pt=sq;<br>
+      によりptを先頭に戻す。
+    </ul>
+    <br>
+    <center><font size=6><a href=funk2.html#top>先頭に戻る</a><br><br>
+                         <a href="index.html">問題に戻る</a>
+                        </font></center>
+
+  </body>
+  </html>

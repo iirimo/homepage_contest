@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+    <font size=5><center><TITLE> 関数１ </TITLE></center></font>
+  </HEAD>
+  <BODY>
+<dl>
+  <b><center><dt><font size=6><a name="top">問１の関数</a></font></b>
+    <DD><a href=funk1.html#one>double matAvrDiagElements(int a[3][3]);</a>
+      <dd><a href=funk1.html#two>void matProduct(int a[3][3], int b[3][3], int c[3][3]);</a>
+        <dd><a href=funk1.html#three>void mat4thPower(int a[3][3], int d[3][3]);</a></center>
+          <bl>
+            <bl>
+              <bl>
+                <font size=4><a name="one">double matAvrDiagElements(int a[3][3]);</a></font>
+                <ul>
+                  <li>Aの対角要素である１、５、９を足し合わせ３で割る関数である。
+<table><caption>A</caption>
+  <tr><th>1</th><td>2</td><td>3</td></tr>
+  <tr><td>4</td><th>5</th><td>6</td></tr>
+  <tr><td>7</td><td>8</td><th>9</th></tr>
+</table></ul>
+<bl>
+  <bl>
+    <font size=4><a name="two">void matProduct(int a[3][3], int b[3][3], int c[3][3]);</a>
+      <ul>
+        <li>AとBの行列の積を求める関数である。積はCに格納される。
+          <table><caption>A</caption>
+            <tr><td>a00</td><td>a01</td><td>a02</td></tr>
+            <tr><td>a10</td><td>a11</td><td>a12</td></tr>
+            <tr><td>a20</td><td>a21</td><td>a22</td></tr>
+          </table>  &nbsp; &nbsp;
+          <table><caption>B</caption>
+            <tr><td>b00</td><td>b01</td><td>b02</td></tr>
+            <tr><td>b10</td><td>b11</td><td>b12</td></tr>
+            <tr><td>b20</td><td>b21</td><td>b22</td></tr>
+          </table><bl>
+            <caption>C</caption>&nbsp; ij=&nbsp; Σ&nbsp; <caption>A</caption>&nbsp; ik&nbsp; <caption>B</caption>&nbsp; kj
+          <li>関数内の変数i,j,kを用いて外側のfor文で行の計算、内側で列の計算を行っている。
+            <li>c[i][j]=0では行列Cの初期化を行っている。
+              <li>c言語では配列は０から始まるので、実際の計算をする際との添え字のずれに気を付ける。
+              </ul>
+              <bl>
+                <bl>
+  <font size=4><a name="three">void mat4thPower(int a[3][3], int d[3][3]);</a></font>
+  <ul>
+    <li>行列Aの４乗を行う関数である。
+    <li>積は先ほどの関数matProductを利用して求める。
+      <li>Aを単純に４回かけるのではなく、Aの2乗を2回かけることで４乗とする。
+        <pre>
+           4                   2   2
+          <caption>A</caption> = A X A X A X A = <caption>A</caption> X <caption>A</caption>
+        </pre>
+      </ul>
+      <br>
+      <center><font size=6><a href=funk1.html#top>先頭に戻る</a><br><br>
+                           <a href="index.html">問題に戻る</a>
+                          </font></center>
+
+  </body>
+</html>
