@@ -2,16 +2,20 @@
 <HTML>
   <HEAD>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="./custom.css">
     <TITLE> ホームページコンテスト </TITLE>
   </HEAD>
-  <BODY><body bgcolor=ash>
+  <BODY><body bgcolor=black>
+    <center><font size=+6><font color=white><a name="top">ホームページコンテスト</a></font></font></center>
 <center><font size=5><font color=white><a href="./index2.html">ｃ言語の特徴</a></font></font></center><br><br><br>
     <FONT SIZE = +5><FONT COLOR = purple><B><BLINK><CENTER>問題1</CENTER></BLINK></B></FONT></FONT><BR>
    <FONT COLOR=blue><FONT SIZE=4><SUB><CENTER>問題文</CENTER></SUB></FONT></FONT><BR>
     <center><font color=white><FONT SIZE=3>問
       1<BR>行列の積に関するプログラムで使われる関数をC言語で作成せよ。<BR>このプログラムは要としてint型の値を持つ3×3行列に関する操作を行っている。<BR><BR>関数matAvrDiagElementsは,第1引数の行列からその行列の対角要素(3個の要素)の平均値を求めて返り値として返す。<BR>関数matProductは,第1引数の行列(A)と第2引数の行列(B)の積(AB)の結果を第3引数の行列に格納する。関数mat4thPowerは,第1引数の行列を4乗した結果を第2引数の行列に格納する。<BR><BR>なお,必要であれば,これら3つの関数はお互いに内部で使用しても構わない。ただし,作成する関数はメイン関数内に示している行列の各要素の値が変わっても,正しく動作するように作成すること。</FONT></font></center><BR><BR>
     <FONT COLOR=BLUE><center>解答例</CENTER></FONT><BR>
-	<BR>
+    <BR>
+    <table border="1" align="center">
+	<tr><td>
     <font color=white><font size=4><pre>#include &lt;stdio.h&gt;
     <font color=purple>double matAvrDiagElements(int a[3][3]);</font>
     <font color=blue>void matProduct(int a[3][3], int b[3][3], int c[3][3]);</font>
@@ -74,7 +78,7 @@
         <font color=blue>matProduct(a2,a2,d);</font>
 
     }</font>
-<pre></font></font>
+<pre></font></font></td></tr></table>
 <BR>
 <BR>
 <FONT SIZE = +5><FONT COLOR = purple><B><BLINK><CENTER><a name="p2">問題2</a></CENTER></BLINK></B></FONT></FONT><BR>
@@ -90,16 +94,19 @@
 見付からなければNULLを返す。
 
 ただし、作成する関数はメイン関数内に示された入力としての文字列mrnaの内容が変わっても正しく動作するように作成すること。
-</pre></font></center><BR><BR>
+</pre></font></font></center><BR><BR>
       <font size=4><FONT COLOR=BLUE><CENTER>解答例</CENTER></FONT><BR>
       <BR>
-      <font color=white><pre>#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+	<table border="1" align="center">
+	  <tr><td><font color=white>
+		<pre>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
 
 typedef struct struct_dummy {
-  char nc;
-  struct struct_dummy *next;
+char nc;
+struct struct_dummy *next;
 } Seq;
 
 <font color=purple>int chkCdn(char sq[], char *cdn);</font>
@@ -269,8 +276,9 @@ int chkCdn(char sq[],char *cdn){
   }
 
   return 0;
-}</font></pre></font></font>
-
+}</font></pre></font></font></td></tr></table>
+</br></bR>
+ <center><font size=6><a href=index.html#top>先頭に戻る</a><br><br>
 
   </body></BODY>
 </HTML>
